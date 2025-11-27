@@ -1,16 +1,58 @@
-/*
-  Специально для светлой темы при наличии класса.
-  Здесь окажутся стили, которые нужно переопределить принудительно,
-  переключая тему
-*/
-
 :root.theme-light {
-  /* сохраните этот селектор в приведённом виде.
-    Так стили написанные ниже будут иметь больший вес,
-    чем стили в медиазапросе предпочтений пользователя
-  */
+  --bg-color: #FFF1F7;
+  --bg-image: url('../images/cover-image-light.png');
+  --font-color: #353430;
+  --accent-color: #FF8DCB;
+  --title-color: #FFC2E6;
+  --section-title-color: #353430;
+  --button-color: #353430;
+  --button-hover: rgba(53, 52, 48, 0.4);
+  --decor-color: #353430;
+  --text-title-color: #353430;
+  --accent-footer-light-desktop-color: #ff0070;
 }
 
-.theme-light .page {
-  /* Вам также нужно будет написать ряд подобных селекторов */
+.theme-light .header__rec-element {
+  display: none;
+}
+
+.theme-light .header__theme-menu-button_active {
+  border: 1px solid var(--button-color);
+  pointer-events: none;
+}
+
+.theme-light .footer__title {
+  text-shadow: 2px 2px 0 var(--accent-color);
+}
+
+@media (width >= 1024px) {
+  .theme-light .footer__title {
+    text-shadow: 2px 2px 0 var(--accent-footer-light-desktop-color);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-color: #FFF1F7;
+    --bg-image: url('../images/cover-light.png');
+    --font-color: #353430;
+    --accent-color: #FF8DCB;
+    --title-color: #FFC2E6;
+    --section-title-color: #353430;
+    --button-color: #353430;
+    --button-hover: rgba(53, 52, 48, 0.4);
+    --decor-color: #353430;
+    --text-title-color: #353430;
+    --accent-footer-light-desktop-color: #ff0070;
+  }
+
+  .header__rec-element {
+    display: none;
+  }
+
+  @media (width >= 1024px) {
+    .footer__title {
+      text-shadow: 2px 2px 0 var(--accent-footer-light-desktop-color); /*создает тень вправо-вниз резкая тень*/
+    }
+  }
 }
