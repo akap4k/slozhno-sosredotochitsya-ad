@@ -6,19 +6,21 @@
 })();
 
 document.addEventListener('DOMContentLoaded', () => {
+    //определяет тему
   const currentTheme = [...document.documentElement.classList]
     .find((cn) => cn.startsWith('theme-'))
     ?.replace('theme-', '');
+     // Находит все кнопки для переключения тем
   const themeButtons = [
-    ...document.querySelectorAll('.header__theme-menu-button'),
+    ...document.querySelectorAll('.head__menu-btn'),
   ];
-  setActiveButton(themeButtons, currentTheme);
-
+  setActiveButton(themeButtons, currentTheme); //  // Устанавливает активную кнопку
+   // Добавляет обработчики клика на кнопки
   themeButtons.forEach((button) => {
     button.addEventListener('click', () => {
       const chosenTheme = [...button.classList]
-        .find((cn) => cn.includes('_type_'))
-        .split('_type_')[1];
+        .find((cn) => cn.includes('_'))
+        .split('_')[1];
       setTheme(chosenTheme);
       setActiveButton(themeButtons, chosenTheme);
     });
@@ -32,21 +34,25 @@ function setTheme(theme) {
 }
 
 function setActiveButton(buttonsArray, theme) {
+    // Сбрасывает все кнопки
   buttonsArray.forEach((button) => {
-    button.classList.remove('header__theme-menu-button_active');
+    button.classList.remove('head__menu-btn_active');
     button.removeAttribute('disabled');
   });
+  // Находит кнопк
   const target = buttonsArray.find((button) =>
-    button.classList.contains(`header__theme-menu-button_type_${theme}`)
+    button.classList.contains(`head__menu-btn_${theme}`)
   );
+  // Активирует найденную кнопку
   if (target) {
-    target.classList.add('header__theme-menu-button_active');
+    target.classList.add('head__menu-btn_active');
     target.setAttribute('disabled', true);
   } else {
+     // Если тема не найдена, то актифируется авто режим
     const autoButton = document.querySelector(
-      '.header__theme-menu-button_type_auto'
+      '.head__menu-btn_auto'
     );
-    autoButton.classList.add('header__theme-menu-button_active');
+    autoButton.classList.add('head__menu-btn_active');
     autoButton.setAttribute('disabled', true);
   }
 }
