@@ -1,2 +1,1 @@
-[https://github.com/akap4k/slozhno-sosredotochitsya-ad
-](https://github.com/akap4k/slozhno-sosredotochitsya-ad)
+git@github.com:akap4k/slozhno-sosredotochitsya-ad.git
